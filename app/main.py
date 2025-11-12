@@ -3,13 +3,17 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import assurance
 import uvicorn
+import os
 
 app = FastAPI(title="UIZ Hospital Python RPC")
 
-# CORS
+# CORS: allow backend and frontend URLs
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Replace with frontend URL in prod
+    allow_origins=[
+        "https://dds-project-hospital-appointment-system.onrender.com",  # backend URL
+        "https://uizhospital.com"  # frontend URL
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -17,4 +21,7 @@ app.add_middleware(
 # Routes
 app.include_router(assurance.router, prefix="/rpc", tags=["Assurance"])
 
-
+# Start server with Render's assigned PORT
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port)
