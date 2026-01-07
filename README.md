@@ -8,7 +8,7 @@
 
 **Professor:** Pr. EL HABOUZ Youssef  
 **Major:** IISE (Ingénierie Informatique et Systèmes Embarqués)
-
+ 
 <p>
   <img src="https://img.shields.io/badge/Language-Python_3.x-3776AB?logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/Framework-FastAPI-009688?logo=fastapi&logoColor=white" alt="FastAPI" />
